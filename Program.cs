@@ -25,7 +25,15 @@ namespace InheritanceMinigame
             if (choice == "2")
                 player = new Mage(heroName);
             else
-                player = new Warrior(heroName);
+                {
+                Console.Write("Do you want to be an Elite Warrior? (y/n): ");
+                string eliteChoice = Console.ReadLine().ToLower();
+                
+                if (eliteChoice == "y")
+                    player = new EliteWarrior(heroName);
+                else
+                    player = new Warrior(heroName);
+            }   
 
             Queue<Character> dungeonEnemies = new Queue<Character>();
             dungeonEnemies.Enqueue(new Goblin("Gorg the Sneaky"));
